@@ -7,29 +7,20 @@ on:
 jobs:
   convert:
     runs-on: windows-latest
+
+    container:
+      image: docker://pandoc/core
+
     steps:
       - name: 签出存储库
         uses: actions/checkout@v4
 
-      - name: 转换规则为docx
-        uses: docker://pandoc/core
-        with:
-          args: "README.md -o 规则.docx"
-
-      - name: 转换规则为pdf
-        uses: docker://pandoc/core
-        with:
-          args: "README.md -o 规则.pdf"
-
-      - name: 转换教程为docx
-        uses: docker://pandoc/core
-        with:
-          args: "教程.md -o 教程.docx"
-
-      - name: 转换教程为pdf
-        uses: docker://pandoc/core
-        with:
-          args: "教程.md -o 教程.pdf"
+      - name: 执行4个转换
+        run: |
+          pandoc README.md -o 规则.docx
+          pandoc README.md -o 规则.pdf
+          pandoc 教程.md -o 教程.docx
+          pandoc 教程.md -o 教程.pdf
 
       - name: 上传工件
         uses: actions/upload-artifact@v4
