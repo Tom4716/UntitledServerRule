@@ -18,9 +18,9 @@ jobs:
       - name: 执行4个转换
         run: |
           pandoc README.md -o 规则.docx
-          pandoc README.md -o 规则.pdf
+#          pandoc README.md -o 规则.pdf
           pandoc 教程.md -o 教程.docx
-          pandoc 教程.md -o 教程.pdf
+#          pandoc 教程.md -o 教程.pdf
 
       - name: 上传工件
         uses: actions/upload-artifact@v4
