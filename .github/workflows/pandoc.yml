@@ -6,7 +6,7 @@ on:
 
 jobs:
   convert:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     container:
       image: docker://pandoc/core
