@@ -10,10 +10,6 @@ jobs:
       - name: 签出存储库
         uses: actions/checkout@v4
 
-      - name: 下载lsb_release
-        run: |
-          apt-get update && apt-get install -y lsb-release && apt-get clean all
-
       - name: 设置 Python
         uses: actions/setup-python@v4
         with:
