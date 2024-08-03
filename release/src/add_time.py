@@ -5,10 +5,11 @@
 #
 
 import datetime
+import pytz
 import os
 
 # 获取当前时间
-now = datetime.datetime.now()
+now = datetime.datetime.now(pytz.timezone('Asia/Shanghai'))  # 指定UTC+8
 time = now.strftime("%Y-%m-%d %H:%M:%S")
 tag_name = now.strftime("v%Y.%m.%d.%H.%M.%S")
 # 输出，供后续使用
