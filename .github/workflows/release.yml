@@ -27,17 +27,17 @@ jobs:
       - name: 转换规则为docx
         uses: docker://pandoc/core
         with:
-          args: "--README.md -o 规则.docx"
+          args: "README.md -o 规则.docx"
 
       - name: 转换教程为docx
         uses: docker://pandoc/core
         with:
-          args: "--教程.md -o 教程.docx"
+          args: "教程.md -o 教程.docx"
 
       - name: 转换信息公示为docx
         uses: docker://pandoc/core
         with:
-          args: "--信息公示.md -o 信息公示.docx"
+          args: "信息公示.md -o 信息公示.docx"
 
       - name: 发布release
         uses: softprops/action-gh-release@v1
