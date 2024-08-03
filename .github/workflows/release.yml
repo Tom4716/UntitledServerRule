@@ -1,0 +1,45 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker://pandoc/latex
+
+    steps:
+      - name: 签出存储库
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+          cache: 'pip'
+          cache-dependency-path: |
+            **/requirements*.txt
+
+      - name: 添加时间
+        id: add_time
+        run: |
+          python release/src/add_time.py
+
+      - name: 转换md为docx
+        run: |
+          pandoc README.md -o 规则.docx
+          pandoc 教程.md -o 教程.docx
+          pandoc 信息公示.md -o 信息公示.docx
+
+      - name: 发布release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ steps.add_time.outputs.time }}
+          tag_name: ${{ steps.add_time.outputs.time }}
+          draft: false
+          files: |
+            *.md
+            *.docx
+          generate_release_notes: true
