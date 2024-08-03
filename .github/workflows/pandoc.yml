@@ -15,10 +15,14 @@ jobs:
       - name: 签出存储库
         uses: actions/checkout@v4
 
-      - name: 执行4个转换
+      - name: 执行6个转换
         run: |
           pandoc README.md -o 规则.docx
           pandoc 教程.md -o 教程.docx
+          pandoc 信息公示.md -o 信息公示.docx
+          pandoc README.md -o 规则.pdf --pdf-engine=xelatex
+          pandoc 教程.md -o 教程.pdf --pdf-engine=xelatex
+          pandoc 信息公示.md -o 信息公示.pdf --pdf-engine=xelatex
 
       - name: 上传工件
         uses: actions/upload-artifact@v4
