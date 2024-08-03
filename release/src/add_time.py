@@ -8,10 +8,12 @@ import datetime
 import os
 
 # 获取当前时间
-time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-tag_name = datetime.datetime.now().strftime("v%Y.%m.%d.%H.%M.%S")
+now = datetime.datetime.now()
+time = now.strftime("%Y-%m-%d %H:%M:%S")
+tag_name = now.strftime("v%Y.%m.%d.%H.%M.%S")
 # 输出，供后续使用
 print(f'::set-output name=time::{time}')
+print(f'::set-output name=tag_name::{tag_name}')
 
 # 遍历目录下文件
 for name in os.listdir('.'):
