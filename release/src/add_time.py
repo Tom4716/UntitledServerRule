@@ -13,8 +13,8 @@ now = datetime.datetime.now(pytz.timezone('Asia/Shanghai'))  # 指定UTC+8
 time = now.strftime("%Y-%m-%d %H:%M:%S")
 tag_name = now.strftime("v%Y.%m.%d.%H.%M.%S")
 # 输出，供后续使用
-print(f'::set-output name=time::{time}')
-print(f'::set-output name=tag_name::{tag_name}')
+print(f'time={time}')
+print(f'tag_name={tag_name}')
 
 # 遍历目录下文件
 for name in os.listdir('.'):
