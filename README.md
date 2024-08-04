@@ -287,4 +287,7 @@
 利用服务器安全漏洞入侵服务器或影响服务器正常运行的：永久封禁，如造成经济损失的，保留向公安机关报案的权利。
 
 ---
-仓库：[https://github.com/Tom4716/UntitledServerRule](https://github.com/Tom4716/UntitledServerRule)
+
+##### 仓库
+
+[https://github.com/Tom4716/UntitledServerRule](https://github.com/Tom4716/UntitledServerRule)
