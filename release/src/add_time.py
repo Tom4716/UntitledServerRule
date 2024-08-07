@@ -1,6 +1,4 @@
 #
-# Created by MC着火的冰块 on 2024/8/3
-#
 # All:在文末加上release时间 #16
 #
 

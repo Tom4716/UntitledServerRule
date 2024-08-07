@@ -1,7 +1,3 @@
-#
-# Created by MC着火的冰块 on 2024/8/4
-#
-
 import sys
 import zipfile
 import os
